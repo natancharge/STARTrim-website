@@ -31,41 +31,6 @@
     max-height: 35%;
 }
 
-.mobile-menu {
-    display: none; /* Hide by default */
-}
-
-.hamburger-icon {
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.nav-menu {
-    list-style: none;
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background-color: #333;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    width: 150px;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.nav-menu.show {
-    display: flex;
-}
-
-@media (max-width: 768px) {
-    .desktop-menu {
-        display: none;
-    }
-    .mobile-menu {
-        display: block;
-    }
-}
 
 .menu {
     width: 100%;
