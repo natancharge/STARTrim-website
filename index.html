@@ -16,19 +16,12 @@
             <div class="logo">
                 <img src="design/Logos/startrimlogo.png" alt="STARTrim Logo">
             </div>
-            <ul class="desktop-menu">
+            <ul>
                 <li><a href="Startrim.html" data-translate="HOME">HOME</a></li>
                 <li><a href="Contact.html" data-translate="CONTACT">CONTACT</a></li>
                 <li><a href="#" id="toggle-login-signup" data-translate="Login/SignUp">Login/SignUp</a></li>
             </ul>
-            <div class="mobile-menu">
-                <div class="hamburger-icon" id="hamburger-icon">&#9776;</div>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="Startrim.html" data-translate="HOME">HOME</a></li>
-                    <li><a href="Contact.html" data-translate="CONTACT">CONTACT</a></li>
-                    <li><a href="#" id="toggle-login-signup-mobile" data-translate="Login/SignUp">Login/SignUp</a></li>
-                </ul>
-            </div>
+
             <div class="language-selector">
                 <select id="language-select">
                     <option value="en">English</option>
@@ -153,17 +146,6 @@
 <meta name="807118098633-d61d9q5sn9bn4pr1s3kn6hloqgbivli1.apps.googleusercontent.com"
       content="807118098633-bpclon7bnhbspvg9n43c2vksb3s7un0f.apps.googleusercontent.com">
 <script>
-
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('hamburger-icon').addEventListener('click', function () {
-            var navMenu = document.getElementById('nav-menu');
-            if (navMenu.classList.contains('show')) {
-                navMenu.classList.remove('show');
-            } else {
-                navMenu.classList.add('show');
-            }
-        });
-
     var container = document.querySelector('.container');
 
     container.addEventListener('wheel', function (event) {
