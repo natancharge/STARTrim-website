@@ -13,6 +13,15 @@
     background-attachment: fixed;
 }
 
+@media screen and (max-width: 600px) {
+    .background {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(background-mobile.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        background-attachment: scroll; 
+    }
+}
 .navbar {
     width: 100%;
     height: 75px;
