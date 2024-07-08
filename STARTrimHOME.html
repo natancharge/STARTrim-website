@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARTrimCommunity</title>
+    <link rel="stylesheet" href="design/style.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="navbar">
+            <div class="menu">
+                <div class="logo">
+                    <img src="design/Logos/startrimlogo.png" alt="STARTrim Logo">
+                </div>
+                <ul>
+                    <li><a href="adminSpace.html" >ADMIN</a></li>
+                    <li><a href="#" onclick="showPosts()">POSTS</a></li>
+                    <li><a href="#" onclick="showEvents()">EVENTS</a></li>
+                    <li><a href="#" onclick="showSTARTCAFE()">STARTCAFE</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="posts">
+            <h2>Posts</h2>
+            <div id="post-list">
+                <!-- Here goes the list of regular posts -->
+            </div>
+        </div>
+
+        <div class="events" style="display: none;">
+            <h2>Events</h2>
+            <div id="event-list">
+                <!-- Here goes the list of events -->
+            </div>
+        </div>
+
+        <div class="STARTCAFE" style="display: none;">
+            <h2>STARTCAFE</h2>
+            <div id="STARTCAFE-list">
+                <!-- Here goes the list of events -->
+            </div>
+            <div class="Coffee-loader">
+              <div class="glass">
+                <div class="Coffee"></div>
+              </div>
+            </div>
+        </div>
+
+        <button id="add-post-button" class="add-content-button" onclick="addPost()">Add</button>
+        <button id="add-event-button" class="add-content-button" onclick="addEvent()" style="display: none;">Add</button>
+
+        <div class="content-options" id="content-options">
+            <button onclick="addVideo()">Add Video</button>
+        </div>
+
+        <div id="post-form" style="display: none;">
+            <h3>Add a New Post</h3>
+            <form id="new-post-form">
+                <input type="text" id="post-title" placeholder="Title" required><br>
+                <textarea id="post-content" placeholder="Content" required></textarea><br>
+                <input type="file" id="post-image" accept="image/*"><br>
+                <input type="url" id="post-video" placeholder="Video URL"><br>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+
+        <div id="event-form" style="display: none;">
+            <h3>Add a New Event</h3>
+            <form id="new-event-form">
+                <input type="text" id="event-title" placeholder="Title" required><br>
+                <textarea id="event-content" placeholder="Content" required></textarea><br>
+                <input type="date" id="event-date" required><br>
+                <input type="time" id="event-arrival-time" required><br>
+                <input type="time" id="event-end-time" required><br>
+                <input type="file" id="event-image" accept="image/*"><br>
+                <input type="text" id="event-location" placeholder="Location" required><br>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="java script/PostSystem.js"></script>
+</body>
+</html>

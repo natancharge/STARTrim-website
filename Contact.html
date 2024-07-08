@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARTrimCommunity</title>
+    <link rel="stylesheet" href="design/style.css">
+</head>
+<body>
+
+<div class="background">
+    <div class="navbar">
+        <div class="menu">
+            <div class="logo">
+                <img src="design/Logos/startrimlogo.png" alt="STARTrim Logo">
+            </div>
+            <ul>
+                <li><a href="Startrim.html" data-translate="HOME">HOME</a></li>
+                <li><a href="Contact.html" data-translate="CONTACT">CONTACT</a></li>
+            </ul>
+
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+            </div>
+        <div class="advertisement">
+            <img id="advertisement-img" src="design/Advertisements/Advertisements1.png" alt="Advertisement">
+        </div>
+        </div>
+
+        <div class="content">
+            <div class="logo-container">
+                <img src="design/Logos/startrimlogo.png" alt="STARTrim Logo" class="logo">
+            </div>
+            <p class="par" data-translate="Contact">
+                <br> The "STARTrim" community brings together young men and women from all over the country
+            </p>
+            <div class="social-media">
+                <h2 data-translate="you_can_find">you can find us here:</h2>
+                <img src="design/Logos/instagram.png" alt="Instagram" class="social-icon" onclick="openSocialWindow('https://www.instagram.com/startrim_community/')">
+                <img src="design/Logos/tiktok.png" alt="TikTok" class="social-icon" onclick="openSocialWindow('https://www.tiktok.com/startrim_community/')">
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 STARTrimCommunity. All rights reserved.</p>
+            <p>Created by Avital Gladkih</p>
+        </footer>
+
+    </div>
+</div>
+
+<script>
+    function openSocialWindow(url) {
+        window.open(url, '_blank', 'width=600,height=400,menubar=no,toolbar=no,resizable=yes,scrollbars=yes');
+    }
+
+    document.getElementById('language-select').addEventListener('change', function () {
+        var selectedLanguage = this.value;
+        changeLanguage(selectedLanguage);
+    });
+
+    function changeLanguage(selectedLanguage) {
+        fetch('Language/' + selectedLanguage + '.json')
+            .then(response => response.json())
+            .then(data => {
+                document.querySelectorAll('[data-translate]').forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (data[key]) {
+                        if (selectedLanguage === 'he' && containsHebrewText(data[key])) {
+                            element.setAttribute('dir', 'rtl');
+                        } else if (selectedLanguage === 'en' && containsEnglishText(data[key])) {
+                            element.setAttribute('dir', 'ltr');
+                        }
+                        element.innerHTML = data[key];
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching language file:', error));
+    }
+
+    function containsHebrewText(text) {
+        const hebrewRegex = /[\u0590-\u05FF\uFB1D-\uFB4F]/;
+        return hebrewRegex.test(text);
+    }
+
+    function containsEnglishText(text) {
+        const englishRegex = /[a-zA-Z]/;
+        return englishRegex.test(text);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        changeLanguage(document.getElementById('language-select').value);
+    });
+
+    const images = [
+        "design/Advertisements/Advertisements1.png",
+        "design/Advertisements/Advertisements2.png"
+    ];
+
+    let currentImageIndex = 0;
+    const advertisementImg = document.getElementById("advertisement-img");
+
+    function changeImage() {
+        advertisementImg.src = images[currentImageIndex];
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
+
+    setInterval(changeImage, 8000);
+
+</script>
+
+</body>
+</html>
