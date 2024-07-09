@@ -120,6 +120,21 @@ ul li a:hover {
     color: #A020F0;
 }
 
+@media (max-width: 600px) {
+    ul {
+        justify-content: space-between;
+    }
+
+    ul li {
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+    ul li a {
+        font-size: 0.9em;
+    }
+}
+
 .language-selector select {
     padding: 5px 10px;
     font-size: 16px;
