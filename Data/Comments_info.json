@@ -9,28 +9,6 @@
             "en": "description",
             "he": "תיאור"
         }
-    },
-    {
-        "imageUrl": "design/commants/image.jpg",
-        "username": {
-            "en": "name",
-            "he": "שם"
-        },
-        "description": {
-            "en": "description",
-            "he": "תיאור"
-        }
-    },
-    {
-        "imageUrl": "design/commants/image.jpg",
-        "username": {
-            "en": "name",
-            "he": "שם"
-        },
-        "description": {
-            "en": "description",
-            "he": "תיאור"
-        }
     }
 ]
 
