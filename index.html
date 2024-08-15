@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STARTrimCommunity</title>
     <link rel="icon" type="image/x-icon" href="design/Logos/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Suez+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="design/style.css">
     <link rel="stylesheet" href="design/CSS_files/eventcard.css">
 </head>
@@ -66,9 +69,9 @@
             <div id="login-signup-container" style="display: none;">
                 <div class="form">
                     <form id="login-form">
-                        <input type="email" id="email" name="email" placeholder="Enter Email Here">
-                        <input type="password" id="password" name="password" placeholder="Enter Password Here">
-                        <button type="submit" class="btnn">Login</button>
+                        <input type="email" id="email" name="email" placeholder="Enter Email Here" data-translate="ENTER_EMAIL">
+                        <input type="password" id="password" name="password" placeholder="Enter Password Here" data-translate="ENTER_PASSWORD">
+                        <button type="submit" class="btnn" data-translate="LOGIN">Login </button>
                     </form>
 
                     <p class="link" data-translate="NO_ACCOUNT">Don't have an account<br>
@@ -76,8 +79,6 @@
                     <p class="liw" data-translate="LOGIN_WITH">Log in with</p>
 
                     <div class="icons">
-                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
                         <a href="#" onclick="signInWithGoogle()"><ion-icon name="logo-google"></ion-icon></a>
                     </div>
                 </div>
