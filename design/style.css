@@ -235,7 +235,7 @@ ul li a:hover {
 }
 
 .content_comment .par {
-    font-family: Arial;
+    font-family: "Rubik", sans-serif;
     letter-spacing: 1.2px;
     line-height: 18px;
     text-align: center;
@@ -264,10 +264,16 @@ ul li a:hover {
 }
 
 .content h1 {
-    font-family: 'Times New Roman';
+    font-family: "Suez One", serif;
     font-size: 60px;
     padding-left: 20px;
     letter-spacing: 2px;
+}
+
+.content_info p.par {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .content .cn {
@@ -610,6 +616,7 @@ body {
 .footer {
     background-color: 1px solid #333;
     color: #fff;
+    font-family: "Rubik", sans-serif;
     text-align: center;
     position: fixed;
     bottom: 0;
