@@ -1,3 +1,9 @@
+/**
+ * @file comments.js
+ * @description This file handles loading comments, adding new comments, editing, and deleting existing comments from a JSON file, and displaying them on the website. 
+ * It also manages the display of the form for adding new comments and controls the edit state for existing comments.
+ */
+
 document.addEventListener('DOMContentLoaded', function () {
     loadComments();
 
@@ -24,6 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('add-comment-button').addEventListener('click', showAddCommentForm);
 });
 
+/**
+ * Loads comments from the JSON file and displays them on the page.
+ * If an error occurs during the fetch operation, it is logged to the console.
+ */
 async function loadComments() {
     try {
         const response = await fetch('Data/Comments_info.json');
@@ -54,6 +64,11 @@ async function loadComments() {
     }
 }
 
+/**
+ * Adds a new comment to the JSON file and updates the comment list on the page.
+ * If an error occurs during the fetch operation, it is logged to the console.
+ * @param {Object} comment - The comment object containing the author and text.
+ */
 async function addComment(comment) {
     try {
         const response = await fetch('Data/Comments_info.json');
@@ -72,6 +87,12 @@ async function addComment(comment) {
     }
 }
 
+/**
+ * Edits an existing comment in the JSON file based on the provided index and updates the comment list on the page.
+ * If an error occurs during the fetch operation, it is logged to the console.
+ * @param {number} index - The index of the comment to edit.
+ * @param {Object} updatedComment - The updated comment object containing the new author and text.
+ */
 async function editComment(index, updatedComment) {
     try {
         const response = await fetch('Data/Comments_info.json');
@@ -90,6 +111,10 @@ async function editComment(index, updatedComment) {
     }
 }
 
+/**
+ * Toggles the edit mode for a specific comment. If another comment is currently being edited, it cancels that edit first.
+ * @param {number} index - The index of the comment to toggle edit mode.
+ */
 function toggleEditComment(index) {
     if (currentlyEditingIndex !== null && currentlyEditingIndex !== index) {
         cancelEditComment(currentlyEditingIndex);
@@ -102,6 +127,11 @@ function toggleEditComment(index) {
     }
 }
 
+/**
+ * Starts editing a comment by replacing the author's name and text with editable text areas.
+ * Also adds a save button to save the changes.
+ * @param {number} index - The index of the comment to edit.
+ */
 function startEditComment(index) {
     console.log('Starting edit for index:', index);
 
@@ -140,7 +170,10 @@ function startEditComment(index) {
     currentlyEditingIndex = index;
 }
 
-
+/**
+ * Cancels the edit mode for a comment by reverting the changes and removing the save button.
+ * @param {number} index - The index of the comment to cancel editing.
+ */
 function cancelEditComment(index) {
     const card = document.querySelectorAll('.card')[index];
     if (!card) {
@@ -158,6 +191,10 @@ function cancelEditComment(index) {
     currentlyEditingIndex = null;
 }
 
+/**
+ * Saves the changes made to a comment during editing by calling the editComment function and reloading the comments list.
+ * @param {number} index - The index of the comment to save.
+ */
 async function saveComment(index) {
     const author = document.querySelector(`#edit-author-${index}`).value;
     const text = document.querySelector(`#edit-text-${index}`).value;
@@ -168,6 +205,12 @@ async function saveComment(index) {
     loadComments();
 }
 
+/**
+ * Deletes a comment from the JSON file based on the provided index and updates the comment list on the page.
+ * If the comment being deleted is currently being edited, it cancels the edit mode.
+ * If an error occurs during the fetch operation, it is logged to the console.
+ * @param {number} index - The index of the comment to delete.
+ */
 async function deleteComment(index) {
     try {
         const response = await fetch('Data/Comments_info.json');
@@ -192,6 +235,10 @@ async function deleteComment(index) {
     }
 }
 
+/**
+ * Shows or hides the form for adding a new comment based on its current visibility.
+ * If the form is made visible, it sets focus on the author input field.
+ */
 function showAddCommentForm() {
     const form = document.getElementById('add-comment-form');
     const isFormVisible = form.style.display === 'block';
